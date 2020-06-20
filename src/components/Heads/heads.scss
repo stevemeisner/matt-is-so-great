@@ -1,0 +1,13 @@
+@import "../../styles/partials/colors";
+
+.head {
+  svg {
+    display: block;
+    max-height: 100vh;
+    background: $pink;
+
+    path {
+      fill: $purp;
+    }
+  }
+}
