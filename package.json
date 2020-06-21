@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "All the great things about Matt",
   "main": "index.js",
-  "repository": "git@bitbucket.org:anthroware/matt-is-so-great.git",
-  "author": "Anthroware",
+  "repository": "https://github.com/stevemeisner/matt-is-so-great",
+  "author": "Steve Meisner",
   "license": "MIT",
   "scripts": {
     "matt": "echo \"Matt is so great!\" && exit 1",
