@@ -1,5 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const TerserJSPlugin = require("terser-webpack-plugin");
 const webpack = require('webpack');
 
 module.exports = {
@@ -64,6 +66,20 @@ module.exports = {
         loaders: ["file-loader"]
       }
     ]
+  },
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+    splitChunks: {
+      cacheGroups: {
+        styles: {
+          chunks: "all",
+          enforce: true,
+          name: "matty-styles",
+          test: /\.css$/
+        }
+      }
+    }
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),

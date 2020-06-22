@@ -7,8 +7,6 @@ const Heads = ({count}) => {
   let heads = [];
 
   const getRandomColor = () => {
-    // let colorValues = ["red", "blue", "green", "yellow", "rebeccapurple", "auqua", "orange", "black", "white", "pink"];
-    // return colorValues[Math.floor(Math.random() * colorValues.length)];
     return '#'+Math.floor(Math.random()*16777215).toString(16);
   }
 
