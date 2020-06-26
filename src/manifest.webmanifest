@@ -1,0 +1,21 @@
+{
+  "short_name": "Matt Is So Great",
+  "name": "Matt: the sung hero?",
+  "description": "A shrine",
+  "icons": [
+    {
+      "src": "/img/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/img/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "background_color": "#ffe534",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#ffe534"
+}

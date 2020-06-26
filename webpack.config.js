@@ -1,14 +1,18 @@
 const path = require('path');
 const CompressionPlugin = require('compression-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserJSPlugin = require("terser-webpack-plugin");
 const webpack = require('webpack');
 
+const ASSET_PATH = process.env.ASSET_PATH || '/';
+
 module.exports = {
   entry: path.join(__dirname, "src", "mattsogreat.js"),
   output: {
     path: path.join(__dirname, "build"),
+    publicPath: ASSET_PATH,
     filename: "index.bundle.js"
   },
   mode: process.env.NODE_ENV || "development",
@@ -87,6 +91,13 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "src", "index.html")
     }),
-    new CompressionPlugin()
+    new CompressionPlugin(),
+    new CopyPlugin({
+      patterns: [
+        { from: 'src/manifest.webmanifest' },
+        { from: 'src/browserconfig.xml' },
+        { from: 'src/img/', to: "img" }
+      ],
+    }),
   ]
 };

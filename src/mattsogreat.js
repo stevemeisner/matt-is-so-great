@@ -1,13 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Heads from "./components/Heads/Heads"
+import Input from "./components/ui/controls/Input"
 import GridContainer from "./components/ui/GridContainer/GridContainer"
 import css from "./styles/styles.scss";
 
-let HeyMatt = () => {
+const HeyMatt = () => {
   return (
     <GridContainer>
-      <Heads count={40} />
+      {/* <Input /> */}
+      <Heads count={42} />
     </GridContainer>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { number } from 'prop-types';
 import MattsHead from '../MattsHead/MattsHead';
 import css from "./heads.scss";

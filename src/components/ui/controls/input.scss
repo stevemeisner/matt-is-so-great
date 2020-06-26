@@ -1,0 +1,14 @@
+label {
+  text-align: center;
+}
+
+input {
+  &[type="text"] {
+    max-width: 20%;
+    font-size: 3em;
+    font-weight: 700;
+    padding: 1em;
+    border: 0;
+    text-align: center;
+  }
+}
