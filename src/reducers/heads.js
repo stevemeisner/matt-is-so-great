@@ -1,15 +1,12 @@
-const todos = (state = [], action) => {
+const heads = (state = {}, action) => {
   switch (action.type) {
     case 'CHANGE_HEAD_COUNT':
-      return [
-        ...state,
-        {
-          count: action.count
-        }
-      ]
+      return Object.assign({}, state, {
+        count: action.count
+      })
     default:
       return state
   }
 }
 
-export default todos
+export default heads
