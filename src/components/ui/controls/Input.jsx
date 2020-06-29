@@ -18,7 +18,7 @@ const Input = ({
       <input
         type="range"
         min="1"
-        max="42"
+        max="120"
         name={name}
         id={id}
         className={classes}
