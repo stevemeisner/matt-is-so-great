@@ -39,7 +39,7 @@ const FunControls = ({ count, size, changeHeadCount, changeColumnSize }) => {
           getAriaValueText={sizeLabelFormat}
           valueLabelFormat={sizeLabelFormat}
           valueLabelDisplay="auto"
-          step={2}
+          step={3}
           marks
           min={5}
           max={51}
