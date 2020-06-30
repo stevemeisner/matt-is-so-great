@@ -24,7 +24,7 @@ const FunControls = ({ count, size, changeHeadCount, changeColumnSize }) => {
           aria-labelledby="discrete-slider"
           valueLabelDisplay="auto"
           min={10}
-          max={200}
+          max={300}
           value={count}
         />
       </div>
