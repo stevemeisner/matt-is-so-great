@@ -37,6 +37,7 @@
     "webpack-hot-middleware": "^2.24.3"
   },
   "dependencies": {
+    "@material-ui/core": "^4.10.2",
     "autoprefixer": "^9.8.0",
     "fibers": "^5.0.0",
     "prop-types": "^15.7.2",

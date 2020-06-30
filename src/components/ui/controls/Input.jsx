@@ -1,29 +1,30 @@
 import React, { useState } from "react";
 import { connect } from 'react-redux';
-import { changeHeadCount } from "./../../../actions"
-import { bool, func, number, string } from 'prop-types';
+import { bool, number, string, func } from 'prop-types';
 import css from "./input.scss";
 
 const Input = ({
-  changeHeadCount,
-  count,
+  onChange,
+  value,
   hasError,
   name,
   id,
-  classes
+  classes,
+  min,
+  max
 }) => {
 
   return (
-    <label>
+    <label data-errors={hasError}>
       <input
         type="range"
-        min="1"
-        max="120"
+        min={min}
+        max={max}
         name={name}
         id={id}
         className={classes}
-        value={count}
-        onChange={e => changeHeadCount(e.target.value)}
+        value={value}
+        onChange={e => onChange(e.target.value)}
         data-errors={hasError}
       />
     </label>
@@ -31,27 +32,22 @@ const Input = ({
 };
 
 Input.propTypes = {
+  onChange: func.isRequired,
   hasError: bool,
   name: string,
   id: string,
-  classes: string
+  classes: string,
+  min: number,
+  max: number
 };
 
 Input.defaultProps = {
   hasError: false,
   name: "numberOfHeads",
   id: "numberOfHeads",
-  classes: "string"
+  classes: "string",
+  min: 1,
+  max: 100
 }
 
-function mapStateToProps(state) {
-  return {
-    count: state.heads.count,
-  };
-}
-
-const mapDispatchToProps = {
-  changeHeadCount,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Input);
+export default connect(null, null)(Input);

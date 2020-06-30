@@ -1,20 +1,19 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import GridContainer from "./ui/GridContainer/GridContainer";
+import FunControls from "./ui/FunControls/FunControls";
 import Heads from "./Heads/Heads";
-import Input from "./ui/controls/Input";
+import { number } from "prop-types";
 import css from "./styles/styles.scss";
 
 const App = ({ count }) => {
   return (
-    <GridContainer>
-      <div className="controls">
-        <h5>Number of heads</h5>
-        <p>{count}</p>
-        <Input />
-      </div>
-      <Heads count={count} />
-    </GridContainer>
+    <>
+      <FunControls />
+      <GridContainer>
+        <Heads count={count} />
+      </GridContainer>
+    </>
   );
 };
 
@@ -23,5 +22,9 @@ function mapStateToProps(state) {
     count: state.heads.count,
   };
 }
+
+App.propTypes = {
+  count: number.isRequired,
+};
 
 export default connect(mapStateToProps, null)(App);

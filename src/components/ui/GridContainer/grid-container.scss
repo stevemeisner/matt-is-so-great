@@ -2,5 +2,5 @@
   display: grid;
   grid-gap: 0vw;
   align-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(var(--gridMinSize), 1fr));
 }
