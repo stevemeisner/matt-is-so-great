@@ -1,0 +1,13 @@
+.controls {
+  padding: 2em;
+  display: grid;
+  grid-gap: 2em;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+}
+
+.control {
+  h5 {
+    margin-top: 0;
+  }
+}

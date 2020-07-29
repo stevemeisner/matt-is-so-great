@@ -1,17 +1,22 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import Heads from "./components/Heads/Heads"
-import Input from "./components/ui/controls/Input"
-import GridContainer from "./components/ui/GridContainer/GridContainer"
-import css from "./styles/styles.scss";
+import { render } from "react-dom";
+import { Provider } from "react-redux";
+import App from "./components/App";
+import initialState from "./store/initialState";
+import configureStore from './store';
 
-const HeyMatt = () => {
-  return (
-    <GridContainer>
-      {/* <Input /> */}
-      <Heads count={42} />
-    </GridContainer>
-  );
-};
+const store = configureStore(initialState);
 
-ReactDOM.render(<HeyMatt />, document.getElementById("root"));
+const renderApp = () =>
+  render(
+    <Provider store={store}>
+      <App />
+    </Provider>,
+    document.getElementById('root')
+  )
+
+if (process.env.NODE_ENV !== 'production' && module.hot) {
+  module.hot.accept('./components/App', renderApp);
+}
+
+renderApp();

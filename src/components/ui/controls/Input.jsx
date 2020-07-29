@@ -1,26 +1,30 @@
 import React, { useState } from "react";
-import { bool, func, number, string } from 'prop-types';
+import { connect } from 'react-redux';
+import { bool, number, string, func } from 'prop-types';
 import css from "./input.scss";
 
 const Input = ({
-  initialValue,
+  onChange,
+  value,
   hasError,
   name,
   id,
-  classes
+  classes,
+  min,
+  max
 }) => {
 
-  const [value, setValue] = useState(initialValue);
-
   return (
-    <label>
+    <label data-errors={hasError}>
       <input
-        type="text"
+        type="range"
+        min={min}
+        max={max}
         name={name}
         id={id}
         className={classes}
         value={value}
-        onChange={e => setValue(e.target.value)}
+        onChange={e => onChange(e.target.value)}
         data-errors={hasError}
       />
     </label>
@@ -28,21 +32,22 @@ const Input = ({
 };
 
 Input.propTypes = {
-  initialValue: number,
+  onChange: func.isRequired,
   hasError: bool,
   name: string,
   id: string,
   classes: string,
-  type: string
+  min: number,
+  max: number
 };
 
 Input.defaultProps = {
-  initialValue: 10,
   hasError: false,
-  name: "",
-  id: "",
+  name: "numberOfHeads",
+  id: "numberOfHeads",
   classes: "string",
-  type: "string"
-};
+  min: 1,
+  max: 100
+}
 
-export default Input;
+export default connect(null, null)(Input);
